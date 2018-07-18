@@ -23,19 +23,21 @@ variable "ip_cidr_range" {
 }
 
 variable "auto_create_subnetworks" {
-  default = "false"
+  description = "Prevent creation of default subnets for each zone, for new VPC"
+  default     = "false"
 }
 
 variable "allow_stopping_for_update" {
-  default = "true"
+  description = "Allow terraform to stop GCP instance when needed for updates."
+  default     = "true"
 }
 
 variable "host_image" {
-  description = "Host image - If other than Core OS. Compute resource will need modifications"
+  description = "Host image - startup script support only ubuntu/debian at the moment"
   default     = "ubuntu-1604-xenial-v20180627"
 }
 
 variable "machine_type" {
-  description = "Host flavor"
+  description = "Host sizing - n1-standard-2 is recommanded. Smaller might affect performance"
   default     = "n1-standard-2"
 }
